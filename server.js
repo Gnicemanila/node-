@@ -1,11 +1,29 @@
+// const WebSocket = require('ws');//引入模块
+
+// const wss = new WebSocket.Server({ port: 8080 });//创建一个WebSocketServer的实例，监听端口8080
+
+// wss.on('connection', function connection(ws) {
+//   ws.on('message', function incoming(message) {
+//     console.log('received: %s', message);
+//     ws.send(message);
+//   });//当收到消息时，在控制台打印出来，并回复一条信息
+
+// });
+// --------------------- 
+// 作者：LiMubai_CN 
+// 来源：CSDN 
+// 原文：https://blog.csdn.net/LiMubai_CN/article/details/81844156 
+// 版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
 var WebSocketServer = require('ws').Server,
-wss = new WebSocketServer({ port: 8181 });
+wss = new WebSocketServer({ port: 8080 });
 wss.on('connection',(ws)=>{
     ws.on('message',(message)=>{
         console.log(message)
+        ws.send(message)
     })
 })
-
 
 var express = require('express');
 var app=express();
